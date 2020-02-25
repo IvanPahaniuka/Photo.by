@@ -1,0 +1,60 @@
+﻿
+.page-top {
+    margin-top: 25px;
+}
+
+.thumb {
+    margin-bottom: 30px;
+    
+}
+
+
+    .thumb img {
+        border-radius: 10px;
+        box-shadow: rgba(0,0,0,0.5) 0px 2px 5px;
+    }
+
+    .thumb a {
+        position: relative;
+        display: inline-block;
+    }
+
+    .thumb .thumb-background {
+        position: absolute;
+        margin: 0px;
+        width: 100%;
+        min-height: 100%;
+        top: 0;
+        background: black;
+        opacity: 0;
+        border-radius: 10px;
+
+        -webkit-transition: all .3s ease-in-out;
+        -moz-transition: all .3s ease-in-out;
+        -o-transition: all .3s ease-in-out;
+    }
+
+    .thumb .thumb-name {
+        position: absolute;
+        text-align: center;
+        vertical-align: middle;
+        margin: 0px;
+        width: 100%;
+        top: 50%;
+        transform: translate(0, -50%); 
+        opacity: 0;
+        color: white;
+        font-size: 2em;
+
+        -webkit-transition: all .3s ease-in-out;
+        -moz-transition: all .3s ease-in-out;
+        -o-transition: all .3s ease-in-out;
+    }
+
+    .thumb a:hover .thumb-background {
+        opacity: 0.4;
+    }
+
+    .thumb a:hover .thumb-name {
+        opacity: 1;
+    }

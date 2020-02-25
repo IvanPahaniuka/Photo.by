@@ -1,0 +1,33 @@
+﻿@model ASPNetCoreTest3.Models.Album
+
+@{
+    ViewData["Title"] = $"Альбом: {Model.Name}";
+}
+<link href="~/css/carousel.css" rel="stylesheet" />
+
+<div class="container">
+    <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators">
+            @for (int i = 0; i < ViewBag.Photos.Count; i++)
+            {
+                <li data-target="#carousel" data-slide-to="@i" @(i == 0 ? "class=\"active\"" : "")></li>
+            }
+        </ol>
+        <!-- Carousel items -->
+        <div class="carousel-inner carousel-zoom">
+            @for (int i = 0; i < ViewBag.Photos.Count; i++)
+            {
+                <div class="item@(i == 0 ? " active" : "")">
+                    <img class="img-responsive" src="@ViewBag.Photos[i].Source">
+                    <div class="carousel-caption">
+                        <h2>@ViewBag.Photos[i].Name</h2>
+                        <p>@ViewBag.Photos[i].Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#carousel" data-slide="prev">‹</a>
+        <a class="carousel-control right" href="#carousel" data-slide="next">›</a>
+    </div>
+</div>
