@@ -1,0 +1,74 @@
+﻿@model AlbumsViewModel
+
+@{
+    ViewData["Title"] = "Изменение альбома";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Альбом</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(m => m.Album.Id)
+            <div class="form-group">
+                @Html.LabelFor(m => m.Album.Name, new { @class = "control-label" })
+                @Html.EditorFor(m => m.Album.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.Album.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Album.Description, new { @class = "control-label" })
+                @Html.EditorFor(m => m.Album.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.Album.Description, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label class="control-label">Фотографии</label><br>
+                <div id="photos">
+                    @{int v = 0;}
+                    @foreach (var photo in Model.Photos)
+                    {
+                        <div class="photoItem" style="display:inline-block; margin: 0px 10px;">
+                            <h5 class="fotoLabel">Фото №@(++v)</h5>
+                            <label>Название</label>
+                            <select asp-items="@(new SelectList(Model.AllPhotos,"Id","Name", photo))" 
+                                size="1" class="photoSelect" name="@($"Photos[{v-1}]")"></select><br>
+                            <img src="@Model.AllPhotos.First(p => p.Id == photo).LowSource" width="150">
+                        </div>
+                    }
+                </div>
+                <p>
+                    <a class="addPhoto" style="cursor:pointer">Добавить фото</a>
+                    <a class="removePhoto" style="cursor:pointer">Удалить фото</a>
+                </p>
+                <div hidden="hidden">
+                    <div id="photoItem" class="photoItem" style="display:inline-block; margin: 0px 10px;">
+                        <h5 class="fotoLabel">Фото №0</h5>
+                        <label>Название</label>
+                        <select asp-items="@(new SelectList(Model.AllPhotos,"Id","Name"))" size="1" class="photoSelect"></select><br>
+                        <img width="150">
+                    </div>
+                    <select id="photoSelectSource" asp-items="@(new SelectList(Model.AllPhotos,"Id","LowSource"))" size="1"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Album.Date, new { @class = "control-label" })
+                @Html.EditorFor(m => m.Album.Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.Album.Date, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться к списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/albumPhotos.js"></script>
+}

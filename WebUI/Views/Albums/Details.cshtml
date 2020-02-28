@@ -1,0 +1,51 @@
+﻿@model AlbumsViewModel
+
+@{
+    ViewData["Title"] = "Подробности альбома";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h4>Альбом</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Album.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Album.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Album.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Album.Description)
+        </dd>
+        <dt>
+            Фотографии
+        </dt>
+        <dd>
+            <div id="photos">
+                @for (int i = 0; i < Model.Photos.Count; i++)
+                {
+                    <div class="photoItem" style="display:inline-block; margin: 0px 10px;">
+                        <h5 class="fotoLabel">Фото №@(i+1)</h5>
+                        <p>Название: @Model.AllPhotos.First(p => p.Id == Model.Photos[i]).Name</p>
+                        <img src="@Model.AllPhotos.First(p => p.Id == Model.Photos[i]).LowSource" width="150">
+                    </div>
+                }
+            </div>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Album.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Album.Date)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Album.Id">Изменить</a> |
+    <a asp-action="Index">Вернуться к списку</a>
+</div>

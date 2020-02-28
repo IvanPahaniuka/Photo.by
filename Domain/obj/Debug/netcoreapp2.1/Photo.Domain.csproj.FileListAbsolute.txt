@@ -1,0 +1,9 @@
+D:\Programs\Projects\Photo.by\Domain\bin\Debug\netcoreapp2.1\Photo.Domain.deps.json
+D:\Programs\Projects\Photo.by\Domain\bin\Debug\netcoreapp2.1\Photo.Domain.dll
+D:\Programs\Projects\Photo.by\Domain\bin\Debug\netcoreapp2.1\Photo.Domain.pdb
+D:\Programs\Projects\Photo.by\Domain\obj\Debug\netcoreapp2.1\Photo.Domain.csprojAssemblyReference.cache
+D:\Programs\Projects\Photo.by\Domain\obj\Debug\netcoreapp2.1\Photo.Domain.csproj.CoreCompileInputs.cache
+D:\Programs\Projects\Photo.by\Domain\obj\Debug\netcoreapp2.1\Photo.Domain.AssemblyInfoInputs.cache
+D:\Programs\Projects\Photo.by\Domain\obj\Debug\netcoreapp2.1\Photo.Domain.AssemblyInfo.cs
+D:\Programs\Projects\Photo.by\Domain\obj\Debug\netcoreapp2.1\Photo.Domain.dll
+D:\Programs\Projects\Photo.by\Domain\obj\Debug\netcoreapp2.1\Photo.Domain.pdb

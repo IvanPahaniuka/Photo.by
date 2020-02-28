@@ -1,0 +1,23 @@
+﻿@model List<AlbumsViewModel>
+@{
+    ViewData["Title"] = "Главная страница";
+}
+
+<link href="~/css/home.css" rel="stylesheet" />
+
+<div class="container page-top">
+    <div class="row">
+
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="col-lg-3 col-sm-4 col-xs-6 thumb">
+                <a href="/Album/@Model[i].Album.Id">
+                    <img class="img-responsive" src="@Model[i].AllPhotos.First(p => p.Id == Model[i].Photos[0]).LowSource" alt="*img*">
+                    <div class="thumb-background"></div>
+                    <h1 class="thumb-name">@Model[i].Album.Name</h1>
+                </a>
+            </div>
+        }
+
+    </div>
+</div>
