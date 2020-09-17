@@ -1,2 +1,2 @@
 # Photo.by
-ASP.Net Core, C#
+C#, ASP.Net Core
